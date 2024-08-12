@@ -7,38 +7,16 @@
     <link href="https://fonts.cdnfonts.com/css/inter-tight" rel="stylesheet">
     <title>Vite App</title>
     <style>
-      body, html {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #f4f4f4;
-      }
-
       .qr-container {
         display: none; /* Скрыто по умолчанию */
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 100%;
-        width: 100%;
-        background-color: #ffffff;
-        text-align: center;
+        height: 100vh;
       }
 
-      .qr-container canvas {
-        max-width: 300px;
-        max-height: 300px;
-        margin-bottom: 20px;
-      }
-
-      .qr-container p {
-        font-family: "Inter Tight", sans-serif;
-        font-size: 1.2rem;
-        color: #333;
+      canvas {
+        max-width: 100%;
+        max-height: 100%;
       }
     </style>
   </head>
@@ -46,7 +24,6 @@
     <div id="app"></div>
     <div id="qr-container" class="qr-container">
       <canvas id="qrCanvas"></canvas>
-      <p>Please open this mini app on your mobile device</p>
     </div>
 
     <!-- Подключение библиотеки QRCode -->
@@ -63,15 +40,13 @@
         );
       }
 
-      // Если устройство - десктопное, показываем QR-код и скрываем основной контент
+      // Генерация QR-кода, если устройство на базе Windows, macOS или Linux
       if (isDesktop()) {
         const qrContainer = document.getElementById('qr-container');
-        const appContainer = document.getElementById('app');
+        const qrCanvas = document.getElementById('qrCanvas');
 
         qrContainer.style.display = 'flex'; // Показываем QR-код
-        appContainer.style.display = 'none'; // Скрываем основной контент
-
-        QRCode.toCanvas(document.getElementById('qrCanvas'), 'https://t.me/battle_iq_test_bot/battleiqtestapp', function (error) {
+        QRCode.toCanvas(qrCanvas, 'https://t.me/battle_iq_test_bot/battleiqtestapp', function (error) {
           if (error) {
             console.error('Ошибка при генерации QR-кода:', error);
           } else {

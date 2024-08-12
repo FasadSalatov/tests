@@ -227,7 +227,7 @@ const completed = reactive([
   font-weight: 600;
   font-size: 32px;
   color: white;
-  margin-bottom: -12%;
+  margin-bottom: 0%;
   margin-top: 1%;
 }
 

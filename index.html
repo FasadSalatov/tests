@@ -30,7 +30,7 @@
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
 
     <script>
-      // Функция для проверки, что устройство - это десктоп
+      // Функция для проверки, что устройство использует операционную систему Windows, macOS или Linux
       function isDesktop() {
         const userAgent = window.navigator.userAgent.toLowerCase();
         return (
@@ -40,7 +40,7 @@
         );
       }
 
-      // Генерация QR-кода, если устройство - это десктоп
+      // Генерация QR-кода, если устройство на базе Windows, macOS или Linux
       if (isDesktop()) {
         const qrContainer = document.getElementById('qr-container');
         const qrCanvas = document.getElementById('qrCanvas');

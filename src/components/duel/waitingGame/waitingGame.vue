@@ -45,7 +45,7 @@ const { enemyFoundStation, enemyFoundStationOn } = inject("enemyFoundStation");
 
 .cansel-button {
   position: fixed;
-  top: 780px;
+  top: 740px;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 80px;

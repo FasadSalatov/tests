@@ -13,3 +13,7 @@ body {
 .cansel-button {
   top: 650px !important; 
 }
+
+.win-title {
+  margin-top:5px !important;
+}

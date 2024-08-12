@@ -8,7 +8,6 @@ import Settings from "./components/settings/settings.vue";
 import Duel from "./components/duel/duel.vue";
 import UserProfile from "./components/userProfile/userProfile.vue";
 import QRCode from "qrcode";
-const qrCanvas = ref(null);
 const navigationStation = ref(true);
 const settingsStation = ref(false);
 const supportActive = ref(false);
@@ -25,9 +24,11 @@ const UserProfileStation = ref(false);
 const youWinStation = ref(false);
 const youLoseStation = ref(false);
 
-
-onMounted(async () => {
+const qrCanvas = ref(null);
+const showQRCode = ref(false)
+onMounted(() => {
   if (window.innerWidth > 768) { // Показывать только на десктопе
+    showQRCode.value = true;
     QRCode.toCanvas(
       qrCanvas.value,
       "https://t.me/battle_iq_test_bot/battleiqtestapp",

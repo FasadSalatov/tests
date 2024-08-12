@@ -1,5 +1,5 @@
 <script setup>
-import { ref, inject, provide, reactive, onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import UserHeader from "./components/header/user_header/userHeader.vue";
 import HistoryGame from "./components/userGame/historyGame.vue";
 import Navigation from "./components/navigation/Navigation.vue";
@@ -7,7 +7,7 @@ import Friends from "./components/friends/friends.vue";
 import Settings from "./components/settings/settings.vue";
 import Duel from "./components/duel/duel.vue";
 import UserProfile from "./components/userProfile/userProfile.vue";
-import QRCode from "qrcode";
+import QRCodeDisplay from "./components/QRCodeDisplay.vue";
 const navigationStation = ref(true);
 const settingsStation = ref(false);
 const supportActive = ref(false);
@@ -23,20 +23,18 @@ const SupportSendMessage = ref(false);
 const UserProfileStation = ref(false);
 const youWinStation = ref(false);
 const youLoseStation = ref(false);
-
+const isDesktopOS = ref(false);
 const qrCanvas = ref(null);
 const showQRCode = ref(false)
+
 onMounted(() => {
-  if (window.innerWidth > 768) { // Показывать только на десктопе
-    showQRCode.value = true;
-    QRCode.toCanvas(
-      qrCanvas.value,
-      "https://t.me/battle_iq_test_bot/battleiqtestapp",
-      function (error) {
-        if (error) console.error(error);
-        console.log("QR код успешно создан!");
-      }
-    );
+  const userAgent = window.navigator.userAgent.toLowerCase();
+  if (
+    userAgent.includes("windows") ||
+    userAgent.includes("macintosh") ||
+    userAgent.includes("linux")
+  ) {
+    isDesktopOS.value = true;
   }
 });
 const youLoseStationOn = () => {
@@ -268,33 +266,34 @@ provide("UserProfileStation", {
 </script>
 
 <template>
-  <div class="cont">
-    <img class="bg-img" src="/bg.svg" alt="" />
+  <div v-if="isDesktopOS">
+    <QRCodeDisplay />
   </div>
-  <Duel v-if="duelStation" />
-  <section
-    class="main-section"
-    v-if="!settingsStation && !duelStation && !UserProfileStation"
-  >
-    <section class="user-accaunt">
-      <UserHeader />
-      <button @click="duelStationOn" class="new-game-btn">
-        <img src="/main/sword.svg" alt="" />
-        NEW GAME
-        <img src="/main/sword.svg" alt="" />
-      </button>
-      <!-- QR-код будет по центру, только если showQRCode true -->
-      <div v-if="showQRCode" class="qr-container">
-        <canvas ref="qrCanvas"></canvas>
-      </div>
+  <div v-else>
+    <div class="cont">
+      <img class="bg-img" src="/bg.svg" alt="" />
+    </div>
+    <Duel v-if="duelStation" />
+    <section
+      class="main-section"
+      v-if="!settingsStation && !duelStation && !UserProfileStation"
+    >
+      <section class="user-accaunt">
+        <UserHeader />
+        <button @click="duelStationOn" class="new-game-btn">
+          <img src="/main/sword.svg" alt="" />
+          NEW GAME
+          <img src="/main/sword.svg" alt="" />
+        </button>
+      </section>
+      <section class="user-interface-cont"></section>
+      <HistoryGame v-if="navigationStation" />
+      <Friends v-else />
     </section>
-    <section class="user-interface-cont"></section>
-    <HistoryGame v-if="navigationStation" />
-    <Friends v-else />
-  </section>
-  <Settings v-if="settingsStation" />
-  <Navigation v-if="!duelStation" />
-  <UserProfile v-if="UserProfileStation" />
+    <Settings v-if="settingsStation" />
+    <Navigation v-if="!duelStation" />
+    <UserProfile v-if="UserProfileStation" />
+  </div>
 </template>
 
 

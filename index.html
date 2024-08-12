@@ -25,10 +25,12 @@
     <div id="qr-container" class="qr-container">
       <canvas id="qrCanvas"></canvas>
     </div>
+    
+    <!-- Сначала загружаем библиотеку QRCode -->
     <script src="https://cdn.jsdelivr.net/npm/qrcode"></script>
-    <script type="module" src="/src/main.js"></script>
+
+    <!-- Затем выполняем скрипт для проверки устройства и генерации QR-кода -->
     <script>
-      // Проверяем, что устройство - это десктоп
       function isDesktop() {
         const userAgent = window.navigator.userAgent.toLowerCase();
         return (
@@ -52,5 +54,8 @@
         });
       }
     </script>
+
+    <!-- Последним загружаем основной скрипт приложения -->
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>

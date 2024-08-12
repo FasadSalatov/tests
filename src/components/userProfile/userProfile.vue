@@ -158,7 +158,7 @@ const completed = reactive([
 
 .card-cont {
   width: 100%;
-  height: 270px;
+  height: 300px;
   overflow-x: hidden;
   margin-top: 50px;
   display: flex;
@@ -342,7 +342,7 @@ const completed = reactive([
 @media screen and (max-height: 850px) {
   .card-cont {
     width: 100%;
-    height: 270px;
+    height: 300px;
     overflow-x: hidden;
     display: flex;
     align-items: center;
@@ -354,7 +354,7 @@ const completed = reactive([
 @media screen and (max-height: 830px) {
   .card-cont {
     width: 100%;
-    height: 260px;
+    height: 290px;
     overflow-x: hidden;
     display: flex;
     align-items: center;
@@ -366,7 +366,7 @@ const completed = reactive([
 @media screen and (max-height: 800px) {
   .card-cont {
     width: 100%;
-    height: 200px;
+    height: 230px;
     overflow-x: hidden;
     margin-top: 20px;
     display: flex;
@@ -379,7 +379,7 @@ const completed = reactive([
 @media screen and (max-height: 780px) {
   .card-cont {
     width: 100%;
-    height: 200px;
+    height: 230px;
     overflow-x: hidden;
     display: flex;
     align-items: center;
@@ -391,7 +391,7 @@ const completed = reactive([
 @media screen and (max-height: 760px) {
   .card-cont {
     width: 100%;
-    height: 180px;
+    height: 210px;
     overflow-x: hidden;
     display: flex;
     align-items: center;
@@ -403,7 +403,7 @@ const completed = reactive([
 @media screen and (max-height: 740px) {
   .card-cont {
     width: 100%;
-    height: 160px;
+    height: 190px;
     overflow-x: hidden;
     display: flex;
     align-items: center;
@@ -415,7 +415,7 @@ const completed = reactive([
 @media screen and (max-height: 720px) {
   .card-cont {
     width: 100%;
-    height: 140px;
+    height: 170px;
     overflow-x: hidden;
     display: flex;
     align-items: center;
@@ -426,7 +426,7 @@ const completed = reactive([
 @media screen and (max-height: 700px) {
   .card-cont {
     width: 100%;
-    height: 120px;
+    height: 150px;
     overflow-x: hidden;
     display: flex;
     align-items: center;
@@ -438,7 +438,7 @@ const completed = reactive([
 @media screen and (max-height: 680px) {
   .card-cont {
     width: 100%;
-    height: 100px;
+    height: 130px;
     overflow-x: hidden;
     display: flex;
     align-items: center;
@@ -450,7 +450,7 @@ const completed = reactive([
 @media screen and (max-height: 660px) {
   .card-cont {
     width: 100%;
-    height: 80px;
+    height: 110px;
     overflow-x: hidden;
     display: flex;
     align-items: center;

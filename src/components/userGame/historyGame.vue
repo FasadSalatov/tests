@@ -318,7 +318,6 @@ export default {
   width: 100%;
   height: 420px;
   overflow-x: hidden;
-  margin-top: 20px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -379,8 +378,8 @@ export default {
 
   .card-cont {
     width: 100%;
-    height: 400px;
-    margin-top: 20px;
+    height: 420px;
+    
   }
 }
 
@@ -405,8 +404,7 @@ export default {
 
   .card-cont {
     width: 100%;
-    height: 320px;
-    margin-top: 20px;
+    height: 340px;
   }
 }
 
@@ -418,8 +416,7 @@ export default {
 
   .card-cont {
     width: 100%;
-    height: 275px;
-    margin-top: 20px;
+    height: 295px;
   }
 }
 
@@ -431,8 +428,7 @@ export default {
 
   .card-cont {
     width: 100%;
-    height: 230px;
-    margin-top: 20px;
+    height: 250px;
   }
 }
 
@@ -444,8 +440,8 @@ export default {
 
   .card-cont {
     width: 100%;
-    height: 180px;
-    margin-top: 20px;
+    height: 200px;
+    
   }
 }
 </style>

@@ -158,7 +158,7 @@ const { wrongAnswerOn } = inject("wrongAnswer");
   border: none;
   margin-top: 150px;
   position: fixed;
-  top: 75%;
+  top: 75% !important;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;

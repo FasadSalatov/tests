@@ -17,3 +17,7 @@ body {
 .win-title {
   margin-top:5px !important;
 }
+
+.button-cont {
+  bottom: 30px !important;
+}

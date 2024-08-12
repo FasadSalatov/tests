@@ -9,9 +9,12 @@
     <style>
       .qr-container {
         display: none; /* Скрыто по умолчанию */
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;
+        width: 100%;
+        background-color: #ffffff;
         text-align: center;
       }
 
@@ -23,15 +26,13 @@
 
       .qr-container p {
         font-family: "Inter Tight", sans-serif;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         color: #333;
       }
     </style>
   </head>
   <body>
-    <div id="app">
-      <!-- Основной контент приложения будет здесь -->
-    </div>
+    <div id="app"></div>
     <div id="qr-container" class="qr-container">
       <canvas id="qrCanvas"></canvas>
       <p>Please open this mini app on your mobile device</p>
@@ -41,31 +42,32 @@
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
 
     <script>
-      function displayContentBasedOnDevice() {
+      // Функция для проверки, что устройство использует операционную систему Windows, macOS или Linux
+      function isDesktop() {
         const userAgent = window.navigator.userAgent.toLowerCase();
-        const isDesktop = userAgent.includes('windows') || userAgent.includes('macintosh') || userAgent.includes('linux');
-
-        if (isDesktop) {
-          // Показываем QR-код и скрываем основной контент
-          document.getElementById('app').style.display = 'none';
-          const qrContainer = document.getElementById('qr-container');
-          qrContainer.style.display = 'flex';
-          QRCode.toCanvas(document.getElementById('qrCanvas'), 'https://t.me/battle_iq_test_bot/battleiqtestapp', function (error) {
-            if (error) {
-              console.error('Ошибка при генерации QR-кода:', error);
-            } else {
-              console.log('QR код успешно создан!');
-            }
-          });
-        } else {
-          // Показываем основной контент, скрываем QR-код
-          document.getElementById('qr-container').style.display = 'none';
-          document.getElementById('app').style.display = 'block';
-        }
+        return (
+          userAgent.includes('windows') ||
+          userAgent.includes('macintosh') ||
+          userAgent.includes('linux')
+        );
       }
 
-      // Выполняем функцию сразу после загрузки страницы
-      displayContentBasedOnDevice();
+      // Если устройство - десктопное, показываем QR-код и скрываем основной контент
+      if (isDesktop()) {
+        const qrContainer = document.getElementById('qr-container');
+        const appContainer = document.getElementById('app');
+
+        qrContainer.style.display = 'flex'; // Показываем QR-код
+        appContainer.style.display = 'none'; // Скрываем основной контент
+
+        QRCode.toCanvas(document.getElementById('qrCanvas'), 'https://t.me/battle_iq_test_bot/battleiqtestapp', function (error) {
+          if (error) {
+            console.error('Ошибка при генерации QR-кода:', error);
+          } else {
+            console.log('QR код успешно создан!');
+          }
+        });
+      }
     </script>
 
     <!-- Последним загружаем основной скрипт приложения -->

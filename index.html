@@ -7,23 +7,51 @@
     <link href="https://fonts.cdnfonts.com/css/inter-tight" rel="stylesheet">
     <title>Vite App</title>
     <style>
-      .qr-container {
-        display: none; /* Скрыто по умолчанию */
+      body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        background-color: #f4f4f4;
       }
 
-      canvas {
-        max-width: 100%;
-        max-height: 100%;
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        z-index: 1000;
+        color: white;
+        text-align: center;
+      }
+
+      .overlay canvas {
+        max-width: 80%;
+        max-height: 80%;
+        margin-bottom: 20px;
+      }
+
+      .overlay p {
+        font-family: "Inter Tight", sans-serif;
+        font-size: 1.5rem;
+        margin: 0;
       }
     </style>
   </head>
   <body>
     <div id="app"></div>
-    <div id="qr-container" class="qr-container">
+    <div id="qr-overlay" class="overlay" style="display: none;">
       <canvas id="qrCanvas"></canvas>
+      <p>Please open this mini app on your mobile device</p>
     </div>
 
     <!-- Подключение библиотеки QRCode -->
@@ -42,10 +70,10 @@
 
       // Генерация QR-кода, если устройство на базе Windows, macOS или Linux
       if (isDesktop()) {
-        const qrContainer = document.getElementById('qr-container');
+        const qrOverlay = document.getElementById('qr-overlay');
         const qrCanvas = document.getElementById('qrCanvas');
 
-        qrContainer.style.display = 'flex'; // Показываем QR-код
+        qrOverlay.style.display = 'flex'; // Показываем QR-код
         QRCode.toCanvas(qrCanvas, 'https://t.me/battle_iq_test_bot/battleiqtestapp', function (error) {
           if (error) {
             console.error('Ошибка при генерации QR-кода:', error);

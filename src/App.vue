@@ -7,7 +7,8 @@ import Settings from "./components/settings/settings.vue";
 import Duel from "./components/duel/duel.vue";
 import UserProfile from "./components/userProfile/userProfile.vue";
 import { ref, inject, provide, reactive } from "vue";
-
+import QRCode from "qrcode";
+const qrCanvas = ref(null);
 const navigationStation = ref(true);
 const settingsStation = ref(false);
 const supportActive = ref(false);
@@ -24,6 +25,19 @@ const UserProfileStation = ref(false);
 const youWinStation = ref(false);
 const youLoseStation = ref(false);
 
+
+onMounted(async () => {
+  if (window.innerWidth > 768) { // Показывать только на десктопе
+    QRCode.toCanvas(
+      qrCanvas.value,
+      "https://t.me/battle_iq_test_bot/battleiqtestapp",
+      function (error) {
+        if (error) console.error(error);
+        console.log("QR код успешно создан!");
+      }
+    );
+  }
+});
 const youLoseStationOn = () => {
   youLoseStation.value = true;
   youWinStationOff();
@@ -253,29 +267,31 @@ provide("UserProfileStation", {
 </script>
 
 <template>
-  <div class="cont">
-    <img class="bg-img" src="/bg.svg" alt="" />
-  </div>
-  <Duel v-if="duelStation" />
-  <section
-    class="main-section"
-    v-if="!settingsStation && !duelStation && !UserProfileStation"
-  >
-    <section class="user-accaunt">
-      <UserHeader />
-      <button @click="duelStationOn" class="new-game-btn">
-        <img src="/main/sword.svg" alt="" />
-        NEW GAME
-        <img src="/main/sword.svg" alt="" />
-      </button>
-    </section>
-    <section class="user-interface-cont"></section>
-    <HistoryGame v-if="navigationStation" />
-    <Friends v-else />
+<div class="cont">
+  <img class="bg-img" src="/bg.svg" alt="" />
+</div>
+<Duel v-if="duelStation" />
+<section
+  class="main-section"
+  v-if="!settingsStation && !duelStation && !UserProfileStation"
+>
+  <section class="user-accaunt">
+    <UserHeader />
+    <button @click="duelStationOn" class="new-game-btn">
+      <img src="/main/sword.svg" alt="" />
+      NEW GAME
+      <img src="/main/sword.svg" alt="" />
+    </button>
+    <!-- Добавляем холст для QR-кода -->
+    <canvas ref="qrCanvas" style="margin-top: 20px;"></canvas>
   </section>
-  <Settings v-if="settingsStation" />
-  <Navigation v-if="!duelStation" />
-  <UserProfile v-if="UserProfileStation" />
+  <section class="user-interface-cont"></section>
+  <HistoryGame v-if="navigationStation" />
+  <Friends v-else />
+</section>
+<Settings v-if="settingsStation" />
+<Navigation v-if="!duelStation" />
+<UserProfile v-if="UserProfileStation" />
 </template>
 
 <style scoped>

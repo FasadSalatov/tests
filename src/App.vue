@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, inject, provide, reactive, onMounted } from "vue";
 import UserHeader from "./components/header/user_header/userHeader.vue";
 import HistoryGame from "./components/userGame/historyGame.vue";
 import Navigation from "./components/navigation/Navigation.vue";

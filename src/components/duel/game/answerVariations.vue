@@ -80,7 +80,7 @@ const { correctAnswerOn } = inject("correctAnswer");
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
-  margin-top: 30px;
+  margin-top: 5px;
 }
 
 .answer-title {

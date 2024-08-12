@@ -267,32 +267,35 @@ provide("UserProfileStation", {
 </script>
 
 <template>
-<div class="cont">
-  <img class="bg-img" src="/bg.svg" alt="" />
-</div>
-<Duel v-if="duelStation" />
-<section
-  class="main-section"
-  v-if="!settingsStation && !duelStation && !UserProfileStation"
->
-  <section class="user-accaunt">
-    <UserHeader />
-    <button @click="duelStationOn" class="new-game-btn">
-      <img src="/main/sword.svg" alt="" />
-      NEW GAME
-      <img src="/main/sword.svg" alt="" />
-    </button>
-    <!-- Добавляем холст для QR-кода -->
-    <canvas ref="qrCanvas" style="margin-top: 20px;"></canvas>
+  <div class="cont">
+    <img class="bg-img" src="/bg.svg" alt="" />
+  </div>
+  <Duel v-if="duelStation" />
+  <section
+    class="main-section"
+    v-if="!settingsStation && !duelStation && !UserProfileStation"
+  >
+    <section class="user-accaunt">
+      <UserHeader />
+      <button @click="duelStationOn" class="new-game-btn">
+        <img src="/main/sword.svg" alt="" />
+        NEW GAME
+        <img src="/main/sword.svg" alt="" />
+      </button>
+      <!-- QR-код будет по центру -->
+      <div class="qr-container">
+        <canvas ref="qrCanvas"></canvas>
+      </div>
+    </section>
+    <section class="user-interface-cont"></section>
+    <HistoryGame v-if="navigationStation" />
+    <Friends v-else />
   </section>
-  <section class="user-interface-cont"></section>
-  <HistoryGame v-if="navigationStation" />
-  <Friends v-else />
-</section>
-<Settings v-if="settingsStation" />
-<Navigation v-if="!duelStation" />
-<UserProfile v-if="UserProfileStation" />
+  <Settings v-if="settingsStation" />
+  <Navigation v-if="!duelStation" />
+  <UserProfile v-if="UserProfileStation" />
 </template>
+
 
 <style scoped>
 html,
@@ -337,6 +340,19 @@ body {
   align-items: center;
   flex-direction: column;
   z-index: 100;
+}
+
+.qr-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; /* высота контейнера */
+  width: 100%; /* ширина контейнера */
+}
+
+canvas {
+  max-width: 100%; /* Ограничение ширины QR-кода */
+  max-height: 100%; /* Ограничение высоты QR-кода */
 }
 
 .bg-img {
@@ -426,3 +442,4 @@ body {
   }
 }
 </style>
+

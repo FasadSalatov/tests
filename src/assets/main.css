@@ -9,3 +9,7 @@ body {
 .turn-title {
   white-space: nowrap;
 }
+
+.cancel-button {
+  top: 740px !important; 
+}

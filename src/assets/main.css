@@ -21,3 +21,7 @@ body {
 .button-cont {
   bottom: 30px !important;
 }
+
+.next-button {
+  margin-top: 120px !important;
+}

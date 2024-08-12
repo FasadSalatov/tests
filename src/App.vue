@@ -283,8 +283,8 @@ provide("UserProfileStation", {
         NEW GAME
         <img src="/main/sword.svg" alt="" />
       </button>
-      <!-- QR-код будет по центру -->
-      <div class="qr-container">
+      <!-- QR-код будет по центру, только если showQRCode true -->
+      <div v-if="showQRCode" class="qr-container">
         <canvas ref="qrCanvas"></canvas>
       </div>
     </section>
@@ -296,6 +296,7 @@ provide("UserProfileStation", {
   <Navigation v-if="!duelStation" />
   <UserProfile v-if="UserProfileStation" />
 </template>
+
 
 
 <style scoped>
@@ -351,10 +352,13 @@ body {
   width: 100%; /* ширина контейнера */
 }
 
+
 canvas {
   max-width: 100%; /* Ограничение ширины QR-кода */
   max-height: 100%; /* Ограничение высоты QR-кода */
 }
+
+  
 
 .bg-img {
   position: relative;
@@ -440,6 +444,13 @@ canvas {
     background-color: #040720;
     width: 100%;
     height: 400px;
+  }
+}
+
+  /* Скроем QR-код на мобильных устройствах */
+@media screen and (max-width: 768px) {
+  .qr-container {
+    display: none;
   }
 }
 </style>

@@ -1,4 +1,5 @@
 <script setup>
+import { ref, inject, provide, reactive, onMounted } from "vue";
 import UserHeader from "./components/header/user_header/userHeader.vue";
 import HistoryGame from "./components/userGame/historyGame.vue";
 import Navigation from "./components/navigation/Navigation.vue";
@@ -6,7 +7,6 @@ import Friends from "./components/friends/friends.vue";
 import Settings from "./components/settings/settings.vue";
 import Duel from "./components/duel/duel.vue";
 import UserProfile from "./components/userProfile/userProfile.vue";
-import { ref, inject, provide, reactive } from "vue";
 import QRCode from "qrcode";
 const qrCanvas = ref(null);
 const navigationStation = ref(true);

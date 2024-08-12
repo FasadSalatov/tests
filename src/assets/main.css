@@ -7,5 +7,5 @@ body {
 }
 
 .turn-title {
-  white-space: hidden;
+  white-space: nowrap;
 }

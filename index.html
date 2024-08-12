@@ -6,9 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.cdnfonts.com/css/inter-tight" rel="stylesheet">
     <title>Vite App</title>
+    <style>
+      .qr-container {
+        display: none; /* Скрыто по умолчанию */
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      canvas {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
+    <div id="qr-container" class="qr-container">
+      <canvas id="qrCanvas"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode"></script>
     <script type="module" src="/src/main.js"></script>
+    <script>
+      // Проверяем, что устройство - это десктоп
+      function isDesktop() {
+        const userAgent = window.navigator.userAgent.toLowerCase();
+        return (
+          userAgent.includes('windows') ||
+          userAgent.includes('macintosh') ||
+          userAgent.includes('linux')
+        );
+      }
+
+      if (isDesktop()) {
+        const qrContainer = document.getElementById('qr-container');
+        const qrCanvas = document.getElementById('qrCanvas');
+
+        qrContainer.style.display = 'flex'; // Показываем QR-код
+        QRCode.toCanvas(qrCanvas, 'https://t.me/battle_iq_test_bot/battleiqtestapp', function (error) {
+          if (error) {
+            console.error('Ошибка при генерации QR-кода:', error);
+          } else {
+            console.log('QR код успешно создан!');
+          }
+        });
+      }
+    </script>
   </body>
 </html>

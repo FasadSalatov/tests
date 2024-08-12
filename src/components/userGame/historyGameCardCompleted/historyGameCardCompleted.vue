@@ -1,193 +1,447 @@
 <script setup>
-defineProps({
-  iconOpponent: String,
-  nameOpponent: String,
-  eloLost: Number,
-  eloOpponent: Number,
-  battleStation: Boolean,
-  scoreUser: Number,
-  scoreOpponent: Number,
-  eloWin: Number,
-});
+import cardAtiveGame from "./historyGameCardActive/historyGameCardListAcitve.vue";
+import CardCompleded from "./historyGameCardCompleted/historyGameCardListCompleted.vue";
+import { reactive } from "vue";
+
+const completed = reactive([
+  {
+    id: 1,
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloLost: 100,
+    eloWin: 150,
+    eloOpponent: 1750,
+    battleStation: false,
+    scoreUser: 0,
+    scoreOpponent: 10,
+  },
+  {
+    id: 1,
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloLost: 100,
+    eloOpponent: 1750,
+    battleStation: true,
+    eloWin: 190,
+    scoreUser: 10,
+    scoreOpponent: 0,
+  },
+  {
+    id: 1,
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloLost: 100,
+    eloOpponent: 1750,
+    battleStation: true,
+    eloWin: 190,
+    scoreUser: 10,
+    scoreOpponent: 0,
+  },
+  {
+    id: 1,
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloLost: 100,
+    eloOpponent: 1750,
+    battleStation: true,
+    eloWin: 190,
+    scoreUser: 10,
+    scoreOpponent: 0,
+  },
+  {
+    id: 1,
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloLost: 100,
+    eloOpponent: 1750,
+    battleStation: true,
+    eloWin: 190,
+    scoreUser: 10,
+    scoreOpponent: 0,
+  },
+  {
+    id: 1,
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloLost: 100,
+    eloOpponent: 1750,
+    battleStation: true,
+    eloWin: 190,
+    scoreUser: 10,
+    scoreOpponent: 0,
+  },
+  {
+    id: 1,
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloLost: 100,
+    eloOpponent: 1750,
+    battleStation: true,
+    eloWin: 190,
+    scoreUser: 10,
+    scoreOpponent: 0,
+  },
+  {
+    id: 1,
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloLost: 100,
+    eloOpponent: 1750,
+    battleStation: true,
+    eloWin: 190,
+    scoreUser: 10,
+    scoreOpponent: 0,
+  },
+  {
+    id: 1,
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloLost: 100,
+    eloOpponent: 1750,
+    battleStation: true,
+    eloWin: 190,
+    scoreUser: 10,
+    scoreOpponent: 0,
+  },
+  {
+    id: 1,
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloLost: 100,
+    eloOpponent: 1750,
+    battleStation: true,
+    eloWin: 190,
+    scoreUser: 10,
+    scoreOpponent: 0,
+  },
+]);
+
+const items = reactive([
+  {
+    id: 1,
+    iconUser: "/main/activeGame/you.svg",
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloUser: 1500,
+    eloOpponent: 1750,
+    enemyStation: false,
+    scoreUser: 3,
+    scoreOpponent: 6,
+  },
+
+  {
+    id: 1,
+    iconUser: "/main/activeGame/you.svg",
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloUser: 1500,
+    eloOpponent: 1750,
+    enemyStation: true,
+    scoreUser: 3,
+    scoreOpponent: 6,
+  },
+  {
+    id: 1,
+    iconUser: "/main/activeGame/you.svg",
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloUser: 1500,
+    eloOpponent: 1750,
+    enemyStation: true,
+    scoreUser: 3,
+    scoreOpponent: 6,
+  },
+  {
+    id: 1,
+    iconUser: "/main/activeGame/you.svg",
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloUser: 1500,
+    eloOpponent: 1750,
+    enemyStation: true,
+    scoreUser: 3,
+    scoreOpponent: 6,
+  },
+  {
+    id: 1,
+    iconUser: "/main/activeGame/you.svg",
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloUser: 1500,
+    eloOpponent: 1750,
+    enemyStation: true,
+    scoreUser: 3,
+    scoreOpponent: 6,
+  },
+  {
+    id: 1,
+    iconUser: "/main/activeGame/you.svg",
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloUser: 1500,
+    eloOpponent: 1750,
+    enemyStation: true,
+    scoreUser: 3,
+    scoreOpponent: 6,
+  },
+  {
+    id: 1,
+    iconUser: "/main/activeGame/you.svg",
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloUser: 1500,
+    eloOpponent: 1750,
+    enemyStation: true,
+    scoreUser: 3,
+    scoreOpponent: 6,
+  },
+  {
+    id: 1,
+    iconUser: "/main/activeGame/you.svg",
+    iconOpponent: "/main/activeGame/user.svg",
+    nameOpponent: "Username",
+    eloUser: 1500,
+    eloOpponent: 1750,
+    enemyStation: true,
+    scoreUser: 3,
+    scoreOpponent: 6,
+  },
+]);
+</script>
+
+<script>
+export default {
+  inheritAttrs: false,
+  data() {
+    return {
+      buttonClick: {
+        activeButton: true,
+        completedButton: false,
+      },
+      gamePageStation: true,
+    };
+  },
+  methods: {
+    activeButtonClick() {
+      this.buttonClick.activeButton = true;
+      this.buttonClick.completedButton = false;
+      this.gamePageStation = true;
+    },
+    completedButtonClick() {
+      this.buttonClick.activeButton = false;
+      this.buttonClick.completedButton = true;
+      this.gamePageStation = false;
+    },
+  },
+};
 </script>
 
 <template>
-  <article class="completed-game-card">
-    <div class="defeat-info-cont" v-if="battleStation">
-      <div class="win-info">
-        <p class="result-bittle">WIN</p>
-        <h2 class="result-bittle">+{{ eloWin }}</h2>
-      </div>
-      <h1 class="score-battle">{{ scoreUser }}:{{ scoreOpponent }}</h1>
+  <div class="user-game-info"></div>
+  <section class="user-game-info-cont">
+    <div class="user-game-title-cont">
+      <h2 class="user-game-title">Game history</h2>
     </div>
-    <div class="defeat-info-cont" v-else>
-      <div class="defeat-info">
-        <p class="result-bittle">Defeat</p>
-        <h2 class="result-bittle">-{{ eloLost }}</h2>
-      </div>
-      <h1 class="score-battle">{{ scoreUser }}:{{ scoreOpponent }}</h1>
+    <div class="user-game-button-cont" v-bind="$attrs">
+      <button
+        class="user-game-button"
+        @click="activeButtonClick"
+        :class="{ active: buttonClick.activeButton }"
+      >
+        Active
+      </button>
+      <button
+        class="user-game-button"
+        @click="completedButtonClick"
+        :class="{ active: buttonClick.completedButton }"
+      >
+        Completed
+      </button>
     </div>
-    <div class="opponent-info">
-      <div class="opponent-info-result">
-        <p class="username-result">{{ nameOpponent }}</p>
-        <h1 class="user-elo-result">
-          {{ eloOpponent }} <span class="elo-title">elo</span>
-        </h1>
-      </div>
-      <img :src="iconOpponent" alt="" />
-    </div>
-  </article>
+    <section class="card-cont">
+      <cardAtiveGame v-if="gamePageStation" :items="items" />
+      <CardCompleded v-else :completed="completed" />
+    </section>
+  </section>
 </template>
 
 <style scoped>
-.completed-game-card {
-  border: 1px solid #040720;
-  border-radius: 30px;
+.user-game-info-cont {
+  position: fixed;
+  z-index: 30;
+  bottom: 0;
+  width: 100%;
+  height: 628px;
+}
+
+.user-game-title-cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -50px;
+}
+
+.user-game-title {
+  font-family: "Inter Tight", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  color: rgb(255, 255, 255);
   width: 388px;
-  height: 60px;
-  box-shadow: 0 4px 0 0 #040720;
+  text-align: left;
+}
+
+.user-game-button-cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.user-game-button {
+  border-radius: 80px;
+  width: 190px;
+  height: 29px;
   background: linear-gradient(180deg, #3395ff 0%, #0053ad 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 70px;
-}
-
-.defeat-info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  border-radius: 60px;
-  width: 120px;
-  height: 35px;
-  background: linear-gradient(180deg, #f29e5a 0%, #8e460b 100%);
-}
-
-.win-info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 27px;
-  border-radius: 60px;
-  width: 120px;
-  height: 35px;
-  background: linear-gradient(180deg, #b266ff 0%, #5900b2 100%);
-}
-
-.defeat-info-cont {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.result-bittle {
+  border: none;
   font-family: "Inter Tight", sans-serif;
   font-weight: 600;
   font-size: 14px;
   color: rgb(255, 255, 255);
 }
 
-.score-battle {
-  font-family: "Inter Tight", sans-serif;
-  font-weight: 600;
-  font-size: 26px;
-  color: rgb(255, 255, 255);
+.user-game-button.active {
+  border: 2px solid #3395ff;
+  background: transparent;
 }
 
-.opponent-info {
+.card-cont {
+  width: 100%;
+  height: 420px;
+  overflow-x: hidden;
   display: flex;
   align-items: center;
-  gap: 6px;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.username-result {
-  font-family: "Inter Tight", sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  color: rgb(255, 255, 255);
-  opacity: 0.6;
-  margin-top: 30px;
-}
+@media screen and (max-width: 400px) {
+  .user-game-button {
+    width: 180px;
+    height: 29px;
+    font-size: 14px;
+  }
 
-.user-elo-result {
-  font-family: "Inter Tight", sans-serif;
-  font-weight: 600;
-  font-size: 18px;
-  color: rgb(255, 255, 255);
-  margin-top: -10px;
-  display: flex;
-  align-items: center;
-}
-
-.elo-title {
-  font-family: "Inter Tight", sans-serif;
-  font-weight: 500;
-  font-size: 12px;
-  color: white;
-  margin-top: -10px;
-}
-
-@media screen and (max-width: 390px) {
-  .completed-game-card {
-  width: 370px;
-  height: 60px;
-  gap: 60px;
-}
+  .user-game-title {
+    font-size: 32px;
+    width: 370px;
+  }
 }
 
 @media screen and (max-width: 370px) {
-  .completed-game-card {
-  width: 350px;
-  height: 60px;
-  gap: 50px;
-}
+  .user-game-button {
+    width: 170px;
+    height: 29px;
+    font-size: 14px;
+  }
 
-.defeat-info-cont {
-  gap: 10px;
-}
-
-.win-info {
-  gap: 27px;
-  width: 110px;
-  height: 35px;
-}
-
-
-.defeat-info {
-  gap: 15px;
-  width: 110px;
-  height: 35px;
-}
+  .user-game-title {
+    font-size: 30px;
+    width: 350px;
+  }
 }
 
 @media screen and (max-width: 350px) {
-  .completed-game-card {
-  width: 330px;
-  height: 60px;
-  gap: 50px;
+  .user-game-button {
+    width: 160px;
+    height: 29px;
+    font-size: 14px;
+  }
+
+  .user-game-title {
+    font-size: 28px;
+    width: 330px;
+  }
 }
 
-.defeat-info-cont {
-  gap: 10px;
+@media screen and (max-height: 900px) {
+  .user-game-title {
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
 }
 
-.win-info {
-  gap: 27px;
-  width: 100px;
-  height: 35px;
+@media screen and (max-height: 880px) {
+  .user-game-title {
+    margin-top: 65px;
+    margin-bottom: 10px;
+  }
+
+  .card-cont {
+    width: 100%;
+    height: 420px;
+    
+  }
 }
 
+@media screen and (max-height: 870px) {
+  .user-game-title {
+    margin-top: 100px;
+    margin-bottom: 10px;
+  }
 
-.defeat-info {
-  gap: 15px;
-  width: 100px;
-  height: 35px;
+  .card-cont {
+    width: 100%;
+    height: 370px;
+    margin-top: 20px;
+  }
 }
 
-.result-bittle {
-  font-size: 13px;
-  color: rgb(255, 255, 255);
+@media screen and (max-height: 830px) {
+  .user-game-title {
+    margin-top: 145px;
+    margin-bottom: 10px;
+  }
+
+  .card-cont {
+    width: 100%;
+    height: 340px;
+  }
 }
+
+@media screen and (max-height: 780px) {
+  .user-game-title {
+    margin-top: 195px;
+    margin-bottom: 10px;
+  }
+
+  .card-cont {
+    width: 100%;
+    height: 295px;
+  }
+}
+
+@media screen and (max-height: 730px) {
+  .user-game-title {
+    margin-top: 240px;
+    margin-bottom: 10px;
+  }
+
+  .card-cont {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+@media screen and (max-height: 680px) {
+  .user-game-title {
+    margin-top: 290px;
+    margin-bottom: 10px;
+  }
+
+  .card-cont {
+    width: 100%;
+    height: 200px;
+    
+  }
 }
 </style>

@@ -12,48 +12,60 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
+        text-align: center;
       }
 
-      canvas {
-        max-width: 100%;
-        max-height: 100%;
+      .qr-container canvas {
+        max-width: 300px;
+        max-height: 300px;
+        margin-bottom: 20px;
+      }
+
+      .qr-container p {
+        font-family: "Inter Tight", sans-serif;
+        font-size: 1.5rem;
+        color: #333;
       }
     </style>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <!-- Основной контент приложения будет здесь -->
+    </div>
     <div id="qr-container" class="qr-container">
       <canvas id="qrCanvas"></canvas>
+      <p>Please open this mini app on your mobile device</p>
     </div>
 
     <!-- Подключение библиотеки QRCode -->
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
 
     <script>
-      // Функция для проверки, что устройство использует операционную систему Windows, macOS или Linux
-      function isDesktop() {
+      function displayContentBasedOnDevice() {
         const userAgent = window.navigator.userAgent.toLowerCase();
-        return (
-          userAgent.includes('windows') ||
-          userAgent.includes('macintosh') ||
-          userAgent.includes('linux')
-        );
+        const isDesktop = userAgent.includes('windows') || userAgent.includes('macintosh') || userAgent.includes('linux');
+
+        if (isDesktop) {
+          // Показываем QR-код и скрываем основной контент
+          document.getElementById('app').style.display = 'none';
+          const qrContainer = document.getElementById('qr-container');
+          qrContainer.style.display = 'flex';
+          QRCode.toCanvas(document.getElementById('qrCanvas'), 'https://t.me/battle_iq_test_bot/battleiqtestapp', function (error) {
+            if (error) {
+              console.error('Ошибка при генерации QR-кода:', error);
+            } else {
+              console.log('QR код успешно создан!');
+            }
+          });
+        } else {
+          // Показываем основной контент, скрываем QR-код
+          document.getElementById('qr-container').style.display = 'none';
+          document.getElementById('app').style.display = 'block';
+        }
       }
 
-      // Генерация QR-кода, если устройство на базе Windows, macOS или Linux
-      if (isDesktop()) {
-        const qrContainer = document.getElementById('qr-container');
-        const qrCanvas = document.getElementById('qrCanvas');
-
-        qrContainer.style.display = 'flex'; // Показываем QR-код
-        QRCode.toCanvas(qrCanvas, 'https://t.me/battle_iq_test_bot/battleiqtestapp', function (error) {
-          if (error) {
-            console.error('Ошибка при генерации QR-кода:', error);
-          } else {
-            console.log('QR код успешно создан!');
-          }
-        });
-      }
+      // Выполняем функцию сразу после загрузки страницы
+      displayContentBasedOnDevice();
     </script>
 
     <!-- Последним загружаем основной скрипт приложения -->

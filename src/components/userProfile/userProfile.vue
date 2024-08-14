@@ -78,7 +78,7 @@ const completed = reactive([
       </article>
       <article class="user-statistic-cont">
         <div class="cont-info">
-          <p class="user-perk">Rank</p>
+          <p class="user-perk">Rank!</p>
           <h2 class="user-rank">1500 <span class="elo-title">elo</span></h2>
         </div>
         <img src="/main/userProfile/line.svg" alt="" />

@@ -91,7 +91,7 @@ const removeToFriend = () => {
           <h2 class="user-name">@username</h2>
         </div>
         <img
-          v-if="addToFriend"
+          v-if="friendStation.inFriends"
           @click="removeToFriend"
           src="/main/userProfile/delete.svg"
           alt="delete"
@@ -114,7 +114,7 @@ const removeToFriend = () => {
         </div>
       </article>
       <button
-        v-if="!addToFriend"
+        v-if="!friendStation.inFriends"
         @click="addToFriend"
         class="add-friend-button"
       >
@@ -181,6 +181,7 @@ const removeToFriend = () => {
   align-items: center;
   justify-content: center;
   gap: 40px;
+  margin-bottom: 6px;
 }
 
 .cont-info {

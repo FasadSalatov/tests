@@ -250,10 +250,10 @@ export default {
     height: 65px;
     font-size: 20px;
   }
-}
 
-.line-time {
-  width: 320px;
+  .line-time {
+    width: 320px;
+  }
 }
 
 @media screen and (max-width: 320px) {

@@ -139,7 +139,7 @@ const removeToFriend = () => {
 <style scoped>
 .user-profile-cont {
   position: fixed;
-  top: 42%;
+  top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -157,14 +157,7 @@ const removeToFriend = () => {
 }
 
 .user-icon {
-  width: 100px;
-}
-
-.user-nav-cont {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  width: 80px;
 }
 
 .username-user-cont {
@@ -267,6 +260,24 @@ const removeToFriend = () => {
   color: white;
   margin-bottom: -5%;
   margin-top: 1%;
+}
+
+.user-nav-cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  top: 180px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.user-history {
+  position: absolute;
+  top: 580px;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media screen and (max-width: 390px) {
@@ -377,123 +388,223 @@ const removeToFriend = () => {
   }
 }
 
-@media screen and (max-height: 850px) {
+@media screen and (max-height: 890px) {
   .card-cont {
-    width: 100%;
-    height: 320px;
-    overflow-x: hidden;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 8px;
+    height: 400px;
+  }
+
+  .user-nav-cont {
+    top: 180px;
+  }
+
+  .user-history {
+    top: 580px;
+  }
+
+  .user-history-title {
+    font-size: 28px;
+    margin-bottom: -5%;
+    margin-top: 1%;
+  }
+}
+
+@media screen and (max-height: 870px) {
+  .card-cont {
+    height: 400px;
+  }
+
+  .user-nav-cont {
+    top: 180px;
+  }
+
+  .user-history {
+    top: 570px;
+  }
+
+  .user-history-title {
+    font-size: 28px;
+    margin-bottom: -5%;
+    margin-top: 1%;
+  }
+}
+
+@media screen and (max-height: 855px) {
+  .card-cont {
+    height: 350px;
+  }
+
+  .user-nav-cont {
+    top: 180px;
+  }
+
+  .user-history {
+    top: 540px;
+  }
+
+  .user-history-title {
+    font-size: 26px;
+    margin-bottom: -5%;
+    margin-top: 1%;
   }
 }
 
 @media screen and (max-height: 830px) {
   .card-cont {
-    width: 100%;
-    height: 310px;
-    overflow-x: hidden;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 8px;
+    height: 300px;
+  }
+
+  .user-nav-cont {
+    top: 180px;
+  }
+
+  .user-history {
+    top: 520px;
+  }
+
+  .user-history-title {
+    font-size: 24px;
+    margin-bottom: -5%;
+    margin-top: 1%;
+  }
+}
+
+@media screen and (max-height: 810px) {
+  .card-cont {
+    height: 300px;
+  }
+
+  .user-nav-cont {
+    top: 180px;
+  }
+
+  .user-history {
+    top: 520px;
+  }
+
+  .user-history-title {
+    font-size: 24px;
+    margin-bottom: -45px;
+    margin-top: 1%;
   }
 }
 
 @media screen and (max-height: 800px) {
   .card-cont {
-    width: 100%;
+    height: 300px;
+  }
+
+  .user-nav-cont {
+    top: 180px;
+  }
+
+  .user-history {
+    top: 520px;
+  }
+
+  .user-history-title {
+    font-size: 24px;
+    margin-bottom: -45px;
+    margin-top: 1%;
+  }
+}
+
+@media screen and (max-height: 770px) {
+  .card-cont {
+    height: 300px;
+  }
+
+  .user-nav-cont {
+    top: 180px;
+  }
+
+  .user-history {
+    top: 500px;
+  }
+
+  .user-history-title {
+    font-size: 24px;
+    margin-bottom: -45px;
+    margin-top: 1%;
+  }
+}
+
+@media screen and (max-height: 750px) {
+  .card-cont {
     height: 250px;
-    overflow-x: hidden;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 8px;
+  }
+
+  .user-nav-cont {
+    top: 180px;
+  }
+
+  .user-history {
+    top: 500px;
+  }
+
+  .user-history-title {
+    font-size: 24px;
+    margin-bottom: -45px;
+    margin-top: 1%;
   }
 }
 
-@media screen and (max-height: 780px) {
+@media screen and (max-height: 730px) {
   .card-cont {
-    width: 100%;
-    height: 250px;
-    overflow-x: hidden;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 8px;
+    height: 270px;
+  }
+
+  .user-nav-cont {
+    top: 160px;
+  }
+
+  .user-history {
+    top: 465px;
+  }
+
+  .user-history-title {
+    font-size: 24px;
+    margin-bottom: -45px;
+    margin-top: 1%;
   }
 }
 
-@media screen and (max-height: 760px) {
-  .card-cont {
-    width: 100%;
-    height: 230px;
-    overflow-x: hidden;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 8px;
-  }
-}
-
-@media screen and (max-height: 740px) {
-  .card-cont {
-    width: 100%;
-    height: 220px;
-    overflow-x: hidden;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 8px;
-  }
-}
-
-@media screen and (max-height: 720px) {
-  .card-cont {
-    width: 100%;
-    height: 190px;
-    overflow-x: hidden;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 8px;
-  }
-}
 @media screen and (max-height: 700px) {
   .card-cont {
-    width: 100%;
-    height: 160px;
-    overflow-x: hidden;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 8px;
+    height: 250px;
+  }
+
+  .user-nav-cont {
+    top: 160px;
+  }
+
+  .user-history {
+    top: 455px;
+  }
+
+  .user-history-title {
+    font-size: 22px;
+    margin-bottom: -45px;
+    margin-top: 1%;
   }
 }
 
 @media screen and (max-height: 680px) {
   .card-cont {
-    width: 100%;
-    height: 150px;
-    overflow-x: hidden;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 8px;
+    height: 220px;
   }
-}
 
-@media screen and (max-height: 660px) {
-  .card-cont {
-    width: 100%;
-    height: 130px;
-    overflow-x: hidden;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 8px;
+  .user-nav-cont {
+    top: 160px;
+  }
+
+  .user-history {
+    top: 455px;
+  }
+
+  .user-history-title {
+    font-size: 22px;
+    margin-bottom: -45px;
+    margin-top: 1%;
   }
 }
 </style>

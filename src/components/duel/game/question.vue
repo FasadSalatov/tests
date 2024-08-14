@@ -15,7 +15,7 @@
 <style scoped>
 .question-cont {
   position: fixed;
-  top: 280px;
+  top: 255px;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 12px;
@@ -67,6 +67,12 @@
     margin-top: -40px;
     margin-bottom: 30px;
   }
+  .theme-cont {
+    width: 308px;
+    height: 25px;
+    margin-top: -30px;
+    margin-bottom: 30px;
+  }
 }
 
 @media screen and (max-width: 360px) {
@@ -78,7 +84,7 @@
   .theme-cont {
     width: 308px;
     height: 25px;
-    margin-top: -46px;
+    margin-top: -39px;
     margin-bottom: 30px;
   }
 
@@ -96,7 +102,7 @@
   .theme-cont {
     width: 250px;
     height: 25px;
-    margin-top: -46px;
+    margin-top: -40px;
     margin-bottom: 30px;
   }
 
@@ -114,7 +120,7 @@
   .theme-cont {
     width: 250px;
     height: 25px;
-    margin-top: -52px;
+    margin-top: -48px;
     margin-bottom: 30px;
   }
 
@@ -132,7 +138,7 @@
   .theme-cont {
     width: 250px;
     height: 25px;
-    margin-top: -63px;
+    margin-top: -58px;
     margin-bottom: 30px;
   }
 

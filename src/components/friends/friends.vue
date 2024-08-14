@@ -283,19 +283,7 @@ const friends = reactive([
   }
 }
 
-@media screen and (max-height: 780px) {
-  .friends-card-cont {
-    height: 250px;
-  }
-
-  .friends-title {
-    font-size: 32px;
-    text-align: left;
-    margin-top: 190px;
-  }
-}
-
-@media screen and (max-height: 730px) {
+@media screen and (max-height: 740px) {
   .friends-card-cont {
     height: 220px;
   }
@@ -304,19 +292,6 @@ const friends = reactive([
     font-size: 32px;
     text-align: left;
     margin-top: 240px;
-    margin-bottom: 10px;
-  }
-}
-
-@media screen and (max-height: 680px) {
-  .friends-card-cont {
-    height: 100px;
-  }
-
-  .friends-title {
-    font-size: 32px;
-    text-align: left;
-    margin-top: 290px;
     margin-bottom: 10px;
   }
 }

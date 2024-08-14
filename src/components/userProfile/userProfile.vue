@@ -96,7 +96,7 @@ const removeToFriend = () => {
           src="/main/userProfile/delete.svg"
           alt="delete"
         />
-        <article class="delete"></article>
+        <article v-if="!friendStation.inFriends" class="delete"></article>
       </article>
       <article class="user-statistic-cont">
         <div class="cont-info">

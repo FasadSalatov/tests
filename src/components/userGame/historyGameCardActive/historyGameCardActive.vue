@@ -9,6 +9,10 @@ defineProps({
   scoreUser: Number,
   scoreOpponent: Number,
 });
+
+import { inject } from "vue";
+
+const { UserProfileStationOn } = inject("UserProfileStation");
 </script>
 
 <template>
@@ -28,7 +32,7 @@ defineProps({
         <img src="/main/activeGame/fight.svg" alt="fight" />
         <h2 class="score-title">{{ scoreOpponent }}</h2>
       </div>
-      <div class="user-info-cont">
+      <div class="user-info-cont" @click="UserProfileStationOn">
         <div class="user-info">
           <p class="user-name">{{ nameOpponent }}</p>
           <h2 class="user-elo">

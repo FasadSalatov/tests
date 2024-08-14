@@ -54,7 +54,6 @@ export default {
 <template>
   <section class="">
     <section class="answer-variations">
-      <!-- <div class="line-time"></div> -->
       <div class="line-time" :style="timerStyle"></div>
       <section class="answer-variations-card-cont">
         <article @click="correctAnswerOn" class="answer-variations-card">

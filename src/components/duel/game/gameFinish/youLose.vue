@@ -26,6 +26,30 @@ const { duelStationOff } = inject("duelStation");
   transform: translate(-50%, -50%);
 }
 
+.win-title {
+  margin-top: 100px;
+  font-family: "Inter Tight", sans-serif;
+  font-weight: 600;
+  font-size: 32px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #ff6666;
+}
+
+.elo-win-title {
+  border-radius: 80px;
+  width: 388px;
+  height: 42px;
+  background: #3395ff;
+  font-family: "Inter Tight", sans-serif;
+  font-weight: 600;
+  font-size: 28px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .lose-title {
   margin-top: 100px;
   font-family: "Inter Tight", sans-serif;

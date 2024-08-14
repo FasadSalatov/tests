@@ -7,8 +7,61 @@ import { inject, ref } from "vue";
 const { youWinStationOn } = inject("youWinStation");
 </script>
 
+<script>
+export default {
+  data() {
+    return {
+      timer: 30, // таймер на 30 секунд
+      interval: null,
+      showButton: false, // Переменная для управления видимостью кнопки
+    };
+  },
+  computed: {
+    timerStyle() {
+      const grayValue = Math.floor((this.timer / 30) * 100); // процент оставшегося времени
+      return {
+        background: `linear-gradient(to right, #1A9D90 ${grayValue}%, #1A655E ${grayValue}%)`, // градиент от серого к зеленому
+        transition: "background 0.1s", // анимация изменения цвета
+      };
+    },
+  },
+  methods: {
+    startTimer() {
+      this.interval = setInterval(() => {
+        if (this.timer > 0) {
+          this.timer -= 1;
+        } else {
+          clearInterval(this.interval);
+          this.showButton = true; // Показываем кнопку по завершении таймера
+        }
+      }, 1000);
+    },
+    resetTimer() {
+      this.timer = 30;
+      this.showButton = false; // Скрываем кнопку при сбросе таймера
+      if (this.interval) {
+        clearInterval(this.interval);
+      }
+      this.startTimer(); // Запускаем таймер заново
+    },
+    onButtonClick() {
+      alert("Timer finished!"); // Логика обработки нажатия на кнопку
+    },
+  },
+  mounted() {
+    this.startTimer(); // Автоматически запускаем таймер при загрузке компонента
+  },
+  beforeDestroy() {
+    // Очищаем интервал, если компонент уничтожается
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  },
+};
+</script>
+
 <template>
-  <section v-if="!round">
+  <section>
     <Header />
     <Question />
     <div class="answer-variations-cont"></div>

@@ -70,7 +70,7 @@ export default {
           <article class="answer-variations-card" @click="correctAnswerOn">
             <h1 class="answer-title">46</h1>
           </article>
-          <article class="answer-variations-card-good" @click="correctAnswerOn">
+          <article class="answer-variations-card" @click="correctAnswerOn">
             <h1 class="answer-title">47</h1>
           </article>
           <article class="answer-variations-card" @click="correctAnswerOn">

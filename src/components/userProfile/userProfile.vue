@@ -59,6 +59,18 @@ const completed = reactive([
     scoreOpponent: 0,
   },
 ]);
+
+const friendStation = reactive({
+  inFriends: false,
+});
+
+const addToFriend = () => {
+  friendStation.inFriends = true;
+};
+
+const removeToFriend = () => {
+  friendStation.inFriends = false;
+};
 </script>
 
 <template>
@@ -78,7 +90,12 @@ const completed = reactive([
           />
           <h2 class="user-name">@username</h2>
         </div>
-        <img src="/main/userProfile/delete.svg" alt="out" />
+        <img
+          v-if="addToFriend"
+          @click="removeToFriend"
+          src="/main/userProfile/delete.svg"
+          alt="delete"
+        />
       </article>
       <article class="user-statistic-cont">
         <div class="cont-info">
@@ -96,7 +113,13 @@ const completed = reactive([
           <h2 class="user-rank">1500</h2>
         </div>
       </article>
-      <button class="add-friend-button">Add to friend</button>
+      <button
+        v-if="!addToFriend"
+        @click="addToFriend"
+        class="add-friend-button"
+      >
+        Add to friend
+      </button>
       <button class="duel-button">
         <img src="/main/userProfile/swod.svg" alt="" />
         Duel

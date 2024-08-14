@@ -87,7 +87,7 @@ export default {
             <h1 class="answer-title">42</h1>
           </article>
         </section>
-        <button @click="wrongAnswerOn" class="next-button" v-if="showButton">
+        <button @click="youWinStationOn" class="next-button" v-if="showButton">
           NEXT <img src="/main/duel/correctAnswer/NEXT.svg" alt="next" />
         </button>
       </section>
@@ -341,6 +341,12 @@ export default {
     gap: 10px;
     margin-top: 30px;
     bottom: 20px;
+  }
+
+  .enemy-img {
+    position: absolute;
+    top: 55px;
+    left: 15px;
   }
 }
 </style>

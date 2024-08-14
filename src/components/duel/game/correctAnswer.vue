@@ -315,5 +315,11 @@ export default {
     margin-top: 30px;
     bottom: 20px;
   }
+
+  .enemy-img {
+    position: absolute;
+    top: 55px;
+    left: 15px;
+  }
 }
 </style>

@@ -85,7 +85,7 @@ export default {
             <h1 class="answer-title">0</h1>
           </article>
         </section>
-        <button @click="wrongAnswerOn" class="next-button" v-if="showButton">
+        <button @click="wrongAnswerOn" class="next-btn" v-if="showButton">
           NEXT <img src="/main/duel/correctAnswer/NEXT.svg" alt="next" />
         </button>
       </section>
@@ -191,7 +191,7 @@ export default {
   left: 15px;
 }
 
-.next-button {
+.next-btn {
   border-radius: 80px;
   width: 388px;
   height: 65px;
@@ -222,7 +222,7 @@ export default {
     height: 110px;
   }
 
-  .next-button {
+  .next-btn {
     width: 360px;
     height: 65px;
     font-size: 22px;
@@ -245,7 +245,7 @@ export default {
     height: 100px;
   }
 
-  .next-button {
+  .next-btn {
     width: 340px;
     height: 65px;
     font-size: 20px;
@@ -267,7 +267,7 @@ export default {
     height: 100px;
   }
 
-  .next-button {
+  .next-btn {
     width: 300px;
     height: 55px;
     font-size: 20px;

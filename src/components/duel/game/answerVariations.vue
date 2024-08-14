@@ -3,10 +3,59 @@ import { inject } from "vue";
 const { correctAnswerOn } = inject("correctAnswer");
 </script>
 
+<script>
+export default {
+  data() {
+    return {
+      timer: 30, // таймер на 30 секунд
+      interval: null,
+    };
+  },
+  computed: {
+    timerStyle() {
+      const grayValue = Math.floor((this.timer / 30) * 100); // процент оставшегося времени
+      // Полоска будет закрашиваться серым справа налево
+      return {
+        background: `linear-gradient(to right, #1A9D90 ${grayValue}%, #1A655E ${grayValue}%)`, // градиент от серого к зеленому
+        transition: "background 0.1s", // анимация изменения цвета
+      };
+    },
+  },
+  methods: {
+    startTimer() {
+      this.interval = setInterval(() => {
+        if (this.timer > 0) {
+          this.timer -= 1;
+        } else {
+          clearInterval(this.interval);
+        }
+      }, 1000);
+    },
+    resetTimer() {
+      this.timer = 30;
+      if (this.interval) {
+        clearInterval(this.interval);
+      }
+      this.startTimer(); // Запускаем таймер заново
+    },
+  },
+  mounted() {
+    this.startTimer(); // Автоматически запускаем таймер при загрузке компонента
+  },
+  beforeDestroy() {
+    // Очищаем интервал, если компонент уничтожается
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  },
+};
+</script>
+
 <template>
   <section class="">
     <section class="answer-variations">
-      <div class="line-time"></div>
+      <!-- <div class="line-time"></div> -->
+      <div class="line-time" :style="timerStyle"></div>
       <section class="answer-variations-card-cont">
         <article @click="correctAnswerOn" class="answer-variations-card">
           <h1 class="answer-title">46</h1>
@@ -35,6 +84,10 @@ const { correctAnswerOn } = inject("correctAnswer");
   z-index: 20;
   opacity: 60%;
   background-color: #040720;
+}
+
+.timer-bar {
+  background-color: rgb(255, 0, 0);
 }
 
 .answer-variations-card {
@@ -80,7 +133,7 @@ const { correctAnswerOn } = inject("correctAnswer");
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
-  margin-top: 5px;
+  margin-top: 30px;
 }
 
 .answer-title {
@@ -94,7 +147,8 @@ const { correctAnswerOn } = inject("correctAnswer");
   border-radius: 30px;
   width: 362px;
   height: 12px;
-  background: linear-gradient(180deg, #3ccdbe 0%, #1a655e 100%);
+  /* background: linear-gradient(180deg, #3ccdbe 0%, #1a655e 100%); */
+  background-color: #19645d;
   margin-top: 40px;
 }
 

@@ -67,30 +67,22 @@ export default {
       <section class="answer-variations">
         <div class="line-time" :style="timerStyle"></div>
         <section class="answer-variations-card-cont">
-          <article class="answer-variations-card">
+          <article class="answer-variations-card" @click="correctAnswerOn">
             <h1 class="answer-title">46</h1>
           </article>
-          <article class="answer-variations-card-good">
+          <article class="answer-variations-card-good" @click="correctAnswerOn">
             <h1 class="answer-title">47</h1>
           </article>
-          <article class="answer-variations-card">
+          <article class="answer-variations-card" @click="correctAnswerOn">
             <h1 class="answer-title">23</h1>
-            <img
-              class="enemy-img"
-              src="/main/duel/correctAnswer/enemy.svg"
-              alt="enemy"
-            />
           </article>
-          <article class="answer-variations-card">
+          <article class="answer-variations-card" @click="correctAnswerOn">
             <h1 class="answer-title">0</h1>
           </article>
         </section>
-        <!-- <button @click="wrongAnswerOn" class="next-button" v-if="showButton">
+        <!-- <button @click="correctAnswerOn" class="next-btn" v-if="showButton">
           NEXT <img src="/main/duel/correctAnswer/NEXT.svg" alt="next" />
         </button> -->
-        <button @click="correctAnswerOn" class="next-btn" v-if="showButton">
-          NEXT <img src="/main/duel/correctAnswer/NEXT.svg" alt="next" />
-        </button>
       </section>
     </section>
   </section>

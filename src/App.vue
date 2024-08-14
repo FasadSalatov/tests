@@ -314,7 +314,7 @@ body {
 
 .user-accaunt {
   position: fixed;
-  top: 140px;
+  top: 105px;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -362,23 +362,7 @@ body {
   }
 }
 
-@media screen and (max-height: 880px) {
-  .user-interface-cont {
-    background-color: #040720;
-    width: 100%;
-    height: 630px;
-  }
-}
-
-@media screen and (max-height: 870px) {
-  .user-interface-cont {
-    background-color: #040720;
-    width: 100%;
-    height: 600px;
-  }
-}
-
-@media screen and (max-height: 830px) {
+@media screen and (max-height: 850px) {
   .user-interface-cont {
     background-color: #040720;
     width: 100%;
@@ -386,27 +370,11 @@ body {
   }
 }
 
-@media screen and (max-height: 780px) {
-  .user-interface-cont {
-    background-color: #040720;
-    width: 100%;
-    height: 500px;
-  }
-}
-
-@media screen and (max-height: 730px) {
+@media screen and (max-height: 740px) {
   .user-interface-cont {
     background-color: #040720;
     width: 100%;
     height: 450px;
-  }
-}
-
-@media screen and (max-height: 680px) {
-  .user-interface-cont {
-    background-color: #040720;
-    width: 100%;
-    height: 400px;
   }
 }
 </style>

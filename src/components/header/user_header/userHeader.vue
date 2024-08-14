@@ -38,10 +38,6 @@ const { trueSettings } = inject("settingsStation");
   margin-bottom: 40px;
 }
 
-header {
-  /* position: fixed; */
-}
-
 .user-info-cont {
   display: flex;
   align-items: center;

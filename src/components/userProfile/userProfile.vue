@@ -181,7 +181,6 @@ const removeToFriend = () => {
   align-items: center;
   justify-content: center;
   gap: 40px;
-  margin-bottom: 6px;
 }
 
 .cont-info {
@@ -235,7 +234,6 @@ const removeToFriend = () => {
   color: white;
   border: none;
   margin-top: 20px;
-  margin-bottom: 8px;
 }
 
 .duel-button {
@@ -252,6 +250,7 @@ const removeToFriend = () => {
   align-items: center;
   justify-content: center;
   gap: 135px;
+  margin-top: 8px;
 }
 
 .user-history-title {

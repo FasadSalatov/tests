@@ -147,9 +147,9 @@ export default {
   border-radius: 30px;
   width: 362px;
   height: 12px;
-  /* background: linear-gradient(180deg, #3ccdbe 0%, #1a655e 100%); */
   background-color: #19645d;
   margin-top: 40px;
+  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 390px) {

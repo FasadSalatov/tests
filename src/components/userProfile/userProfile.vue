@@ -127,7 +127,7 @@ const completed = reactive([
 }
 
 .user-icon {
-  width: 50px;
+  width: 150px;
 }
 
 .user-nav-cont {

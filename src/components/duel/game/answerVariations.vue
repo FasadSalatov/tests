@@ -149,7 +149,6 @@ export default {
   height: 12px;
   background-color: #19645d;
   margin-top: 40px;
-  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 390px) {

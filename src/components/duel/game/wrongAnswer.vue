@@ -14,6 +14,7 @@ const { youWinStationOn } = inject("youWinStation");
     <div class="answer-variations-cont"></div>
     <section>
       <section class="answer-variations">
+        <div class="line-time" :style="timerStyle"></div>
         <section class="answer-variations-card-cont">
           <article class="answer-variations-card-lose">
             <h1 class="answer-title">42</h1>
@@ -33,7 +34,7 @@ const { youWinStationOn } = inject("youWinStation");
             <h1 class="answer-title">42</h1>
           </article>
         </section>
-        <button @click="youWinStationOn" class="next-button">
+        <button @click="wrongAnswerOn" class="next-button" v-if="showButton">
           NEXT <img src="/main/duel/correctAnswer/NEXT.svg" alt="next" />
         </button>
       </section>
@@ -45,7 +46,7 @@ const { youWinStationOn } = inject("youWinStation");
 .answer-variations-cont {
   border-radius: 28px 28px 0 0;
   width: 100%;
-  height: 516px;
+  height: 425px;
   position: fixed;
   bottom: 0;
   z-index: 20;
@@ -53,28 +54,16 @@ const { youWinStationOn } = inject("youWinStation");
   background-color: #040720;
 }
 
-.next {
+.line-time {
+  border-radius: 30px;
+  width: 362px;
+  height: 12px;
+  background-color: #19645d;
+  margin-top: -360px;
   position: fixed;
-  top: 70%;
+  bottom: 375px;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60px;
-  color: rgb(223, 167, 167);
-  border: none;
-  color: black;
-  border-radius: 5px;
-  z-index: 100;
-}
-
-.answer-variations-cont {
-  border-radius: 28px 28px 0 0;
-  width: 100%;
-  height: 516px;
-  position: fixed;
-  bottom: 0;
-  z-index: 20;
-  opacity: 60%;
-  background-color: #040720;
 }
 
 .answer-variations-card-lose {
@@ -149,7 +138,7 @@ const { youWinStationOn } = inject("youWinStation");
   gap: 10px;
   margin-top: 30px;
   position: fixed;
-  top: 55%;
+  bottom: 0;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -173,9 +162,8 @@ const { youWinStationOn } = inject("youWinStation");
   height: 65px;
   background: linear-gradient(180deg, #b266ff 0%, #5900b2 100%);
   border: none;
-  margin-top: 150px;
   position: fixed;
-  top: 94% !important;
+  bottom: 0%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -211,6 +199,12 @@ const { youWinStationOn } = inject("youWinStation");
   }
 }
 
+@media screen and (max-width: 375px) {
+  .line-time {
+    width: 340px;
+  }
+}
+
 @media screen and (max-width: 360px) {
   .answer-variations-card {
     width: 150px;
@@ -230,6 +224,10 @@ const { youWinStationOn } = inject("youWinStation");
     width: 340px;
     height: 65px;
     font-size: 20px;
+  }
+
+  .line-time {
+    width: 320px;
   }
 }
 
@@ -255,93 +253,41 @@ const { youWinStationOn } = inject("youWinStation");
     font-size: 20px;
     gap: 190px;
   }
-}
 
-@media screen and (max-height: 890px) {
-  .answer-variations-cont {
-    height: 460px;
-  }
-
-  .answer-variations-card-cont {
-    top: 60%;
-  }
-}
-
-@media screen and (max-height: 840px) {
-  .answer-variations-cont {
-    height: 400px;
-  }
-
-  .answer-variations-card-cont {
-    top: 65%;
+  .line-time {
+    width: 280px;
   }
 }
 
 @media screen and (max-height: 780px) {
+  .line-time {
+    bottom: 315px;
+  }
+
   .answer-variations-cont {
+    width: 100%;
     height: 350px;
   }
 
-  .answer-variations-card-cont {
-    top: 70%;
-  }
-}
-
-@media screen and (max-height: 720px) {
-  .next-button {
-    width: 300px;
-    height: 40px;
-    font-size: 18px;
-    gap: 190px;
-    top: 74%;
-  }
-}
-
-@media screen and (max-height: 730px) {
-  .answer-variations-cont {
-    height: 300px;
-  }
-  .answer-variations-card-cont {
-    top: 71%;
-  }
-}
-
-@media screen and (max-height: 720px) {
-  .next-button {
-    width: 300px;
-    height: 40px;
-    font-size: 18px;
-    gap: 190px;
-  }
-}
-
-@media screen and (max-height: 680px) {
-  .answer-variations-cont {
-    height: 280px;
-  }
-}
-
-@media screen and (max-height: 670px) {
-  .next-button {
-    width: 300px;
-    height: 40px;
-    font-size: 18px;
-    gap: 190px;
-    top: 72.5%;
-  }
-
   .answer-variations-card {
-    width: 130px;
-    height: 90px;
-  }
-  .answer-variations-card-lose {
-    width: 130px;
+    width: 150px;
     height: 90px;
   }
 
   .answer-variations-card-good {
-    width: 130px;
+    width: 150px;
     height: 90px;
+  }
+
+  .answer-variations-card-lose {
+    width: 150px;
+    height: 90px;
+  }
+
+  .answer-variations-card-cont {
+    gap: 10px;
+    margin-top: 30px;
+    bottom: 20px;
   }
 }
 </style>

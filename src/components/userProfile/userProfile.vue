@@ -64,6 +64,18 @@ const friendStation = reactive({
   inFriends: false,
 });
 
+const imgStation = reactive({
+  imgStation: false,
+});
+
+const imgStationOn = () => {
+  imgStation.imgStation = true;
+};
+
+const imgStationOff = () => {
+  imgStation.imgStation = false;
+};
+
 const addToFriend = () => {
   friendStation.inFriends = true;
 };
@@ -74,6 +86,19 @@ const removeToFriend = () => {
 </script>
 
 <template>
+  <section class="img-check-cont" v-if="imgStation.imgStation">
+    <img
+      @click="imgStationOff"
+      src="/main/userProfile/left.svg"
+      class="out-check-img"
+      alt="out"
+    />
+    <img
+      class="img-check"
+      src="/main/userProfile/userIcon.svg"
+      alt="userIcon"
+    />
+  </section>
   <section class="user-profile-cont">
     <section class="user-nav-cont">
       <article class="user-img-cont">
@@ -84,6 +109,7 @@ const removeToFriend = () => {
         />
         <div class="username-user-cont">
           <img
+            @click="imgStationOn"
             class="user-icon"
             src="/main/userProfile/userIcon.svg"
             alt="userIcon"
@@ -142,6 +168,32 @@ const removeToFriend = () => {
   top: 0;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.img-check-cont {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background: rgba(4, 7, 32, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.out-check-img {
+  position: absolute;
+  top: 65px;
+  left: 25px;
+}
+
+.img-check {
+  width: 300px;
 }
 
 .user-img-cont {

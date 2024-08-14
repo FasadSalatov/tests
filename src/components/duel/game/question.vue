@@ -146,4 +146,23 @@
     font-size: 18px;
   }
 }
+
+@media screen and (max-height: 700px) {
+  .question-cont {
+    top: 225px;
+    width: 300px;
+    height: 130px;
+  }
+
+  .question-title {
+    font-size: 18px;
+  }
+
+  .theme-cont {
+    width: 150px;
+    height: 25px;
+    margin-top: -18px;
+    margin-bottom: 10px;
+  }
+}
 </style>

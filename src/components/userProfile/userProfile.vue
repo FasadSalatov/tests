@@ -96,6 +96,7 @@ const removeToFriend = () => {
           src="/main/userProfile/delete.svg"
           alt="delete"
         />
+        <article class="delete"></article>
       </article>
       <article class="user-statistic-cont">
         <div class="cont-info">
@@ -147,6 +148,12 @@ const removeToFriend = () => {
   display: flex;
   align-items: center;
   gap: 94px;
+}
+
+.delete {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
 }
 
 .user-icon {

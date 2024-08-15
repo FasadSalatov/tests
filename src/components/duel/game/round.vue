@@ -39,6 +39,8 @@ export default {
       this.buttonStation.fourAnswer = false;
       this.buttonStation.img = true;
       this.showButton = true;
+      clearInterval(this.interval); // Останавливаем таймер
+      this.showButton = true;
     },
     twoAnswerClick() {
       this.buttonStation.oneAnswer = false;
@@ -47,6 +49,7 @@ export default {
       this.buttonStation.fourAnswer = false;
       this.buttonStation.img = true;
       this.showButton = true;
+      clearInterval(this.interval); // Останавливаем таймер
     },
 
     threeAnswerClick() {
@@ -56,6 +59,7 @@ export default {
       this.buttonStation.fourAnswer = false;
       this.buttonStation.img = true;
       this.showButton = true;
+      this.showButton = true;
     },
 
     fourAnswerClick() {
@@ -64,6 +68,8 @@ export default {
       this.buttonStation.threeAnswer = false;
       this.buttonStation.fourAnswer = true;
       this.buttonStation.img = true;
+      this.showButton = true;
+      clearInterval(this.interval); // Останавливаем таймер
       this.showButton = true;
     },
 
@@ -87,6 +93,10 @@ export default {
         clearInterval(this.interval);
       }
       this.startTimer(); // Запускаем таймер заново
+    },
+    stopTimer() {
+      clearInterval(this.interval); // Останавливаем таймер
+      this.showButton = true; // Можно показать кнопку "Finish" или сделать что-то еще
     },
     onButtonClick() {
       alert("Timer finished!"); // Логика обработки нажатия на кнопку

@@ -363,33 +363,44 @@ export default {
   }
 }
 
-@media screen and (max-height: 900px) {
+@media screen and (max-height: 932px) {
   .user-game-title {
     margin-top: 40px;
     margin-bottom: 10px;
   }
 
   .card-cont {
-    width: 100%;
-    height: 450px;
-    margin-top: 10px;
+    margin-top: 25px;
   }
 }
 
 @media screen and (max-height: 850px) {
   .user-game-title {
-    margin-top: 150px;
+    margin-top: 100px;
     margin-bottom: 10px;
   }
 
   .card-cont {
     width: 100%;
-    height: 330px;
+    height: 370px;
     margin-top: 15px;
   }
 }
 
-@media screen and (max-height: 740px) {
+@media screen and (max-height: 790px) {
+  .user-game-title {
+    margin-top: 190px;
+    margin-bottom: 10px;
+  }
+
+  .card-cont {
+    width: 100%;
+    height: 280px;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-height: 700px) {
   .user-game-title {
     margin-top: 240px;
     margin-bottom: 10px;

@@ -366,11 +366,19 @@ body {
   .user-interface-cont {
     background-color: #040720;
     width: 100%;
-    height: 550px;
+    height: 600px;
   }
 }
 
-@media screen and (max-height: 740px) {
+@media screen and (max-height: 790px) {
+  .user-interface-cont {
+    background-color: #040720;
+    width: 100%;
+    height: 500px;
+  }
+}
+
+@media screen and (max-height: 700px) {
   .user-interface-cont {
     background-color: #040720;
     width: 100%;

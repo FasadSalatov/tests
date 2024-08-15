@@ -9,14 +9,14 @@ const { wrongAnswerOn } = inject("wrongAnswer");
 export default {
   data() {
     return {
-      timer: 30, // таймер на 30 секунд
+      timer: 5, // таймер на 30 секунд
       interval: null,
       showButton: false, // Переменная для управления видимостью кнопки
     };
   },
   computed: {
     timerStyle() {
-      const grayValue = Math.floor((this.timer / 30) * 100); // процент оставшегося времени
+      const grayValue = Math.floor((this.timer / 5) * 100); // процент оставшегося времени
       return {
         background: `linear-gradient(to right, #1A9D90 ${grayValue}%, #1A655E ${grayValue}%)`, // градиент от серого к зеленому
         transition: "background 0.1s", // анимация изменения цвета

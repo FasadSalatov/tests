@@ -143,7 +143,6 @@ export default {
   width: 190px;
   height: 110px;
   box-shadow: 0 4px 0 0 #040720;
-  box-shadow: 0 4px 0 0 #040720;
   background: linear-gradient(180deg, #2c3580 0%, #153659 100%);
   display: flex;
   align-items: center;

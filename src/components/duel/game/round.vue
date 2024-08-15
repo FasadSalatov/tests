@@ -3,6 +3,7 @@ import Header from "./headerInfo.vue";
 import Question from "./question.vue";
 import { inject, ref } from "vue";
 const { correctAnswerOn } = inject("correctAnswer");
+const { youWinStationOn } = inject("youWinStation");
 </script>
 
 <script>
@@ -12,6 +13,13 @@ export default {
       timer: 5, // таймер на 30 секунд
       interval: null,
       showButton: false, // Переменная для управления видимостью кнопки
+      buttonStation: {
+        oneAnswer: false,
+        twoAnswer: false,
+        threeAnswer: false,
+        fourAnswer: false,
+        img: false,
+      },
     };
   },
   computed: {
@@ -24,6 +32,41 @@ export default {
     },
   },
   methods: {
+    oneAnswerClick() {
+      this.buttonStation.oneAnswer = true;
+      this.buttonStation.twoAnswer = false;
+      this.buttonStation.threeAnswer = false;
+      this.buttonStation.fourAnswer = false;
+      this.buttonStation.img = true;
+      this.showButton = true;
+    },
+    twoAnswerClick() {
+      this.buttonStation.oneAnswer = false;
+      this.buttonStation.twoAnswer = true;
+      this.buttonStation.threeAnswer = false;
+      this.buttonStation.fourAnswer = false;
+      this.buttonStation.img = true;
+      this.showButton = true;
+    },
+
+    threeAnswerClick() {
+      this.buttonStation.oneAnswer = false;
+      this.buttonStation.twoAnswer = true;
+      this.buttonStation.threeAnswer = true;
+      this.buttonStation.fourAnswer = false;
+      this.buttonStation.img = true;
+      this.showButton = true;
+    },
+
+    fourAnswerClick() {
+      this.buttonStation.oneAnswer = true;
+      this.buttonStation.twoAnswer = false;
+      this.buttonStation.threeAnswer = false;
+      this.buttonStation.fourAnswer = true;
+      this.buttonStation.img = true;
+      this.showButton = true;
+    },
+
     startTimer() {
       this.interval = setInterval(() => {
         if (this.timer > 0) {
@@ -70,20 +113,42 @@ export default {
       <section class="answer-variations">
         <div class="line-time" :style="timerStyle"></div>
         <section class="answer-variations-card-cont">
-          <article class="answer-variations-card" @click="nextButton">
+          <article
+            class="answer-variations-card"
+            :class="{ true: buttonStation.oneAnswer }"
+            @click="oneAnswerClick"
+          >
             <h1 class="answer-title">46</h1>
           </article>
-          <article class="answer-variations-card" @click="nextButton">
+          <article
+            class="answer-variations-card"
+            :class="{ true: buttonStation.twoAnswer }"
+            @click="twoAnswerClick"
+          >
             <h1 class="answer-title">47</h1>
           </article>
-          <article class="answer-variations-card" @click="nextButton">
+          <article
+            class="answer-variations-card"
+            :class="{ false: buttonStation.threeAnswer }"
+            @click="threeAnswerClick"
+          >
             <h1 class="answer-title">23</h1>
+            <img
+              v-if="buttonStation.img"
+              class="enemy-img"
+              src="/main/duel/correctAnswer/enemy.svg"
+              alt="enemy"
+            />
           </article>
-          <article class="answer-variations-card" @click="nextButton">
+          <article
+            class="answer-variations-card"
+            :class="{ false: buttonStation.fourAnswer }"
+            @click="fourAnswerClick"
+          >
             <h1 class="answer-title">0</h1>
           </article>
         </section>
-        <button @click="correctAnswerOn" v-if="showButton" class="next-btn">
+        <button @click="youWinStationOn" v-if="showButton" class="next-btn">
           NEXT <img src="/main/duel/correctAnswer/NEXT.svg" alt="next" />
         </button>
       </section>
@@ -147,6 +212,14 @@ export default {
   justify-content: center;
   position: relative;
   opacity: 100%;
+}
+
+.answer-variations-card.true {
+  background: linear-gradient(180deg, #3ccdbe 0%, #1a655e 100%);
+}
+
+.answer-variations-card.false {
+  background: linear-gradient(180deg, #f66 0%, #f33 100%);
 }
 
 .answer-variations-card-good {

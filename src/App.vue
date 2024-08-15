@@ -23,6 +23,15 @@ const SupportSendMessage = ref(false);
 const UserProfileStation = ref(false);
 const youWinStation = ref(false);
 const youLoseStation = ref(false);
+const friendsButton = ref(false);
+
+const friendsButtonOn = () => {
+  friendsButton.value = true;
+};
+
+const friendsButtonOff = () => {
+  friendsButton.value = false;
+};
 
 const youLoseStationOn = () => {
   youLoseStation.value = true;
@@ -36,6 +45,7 @@ const youLoseStationOff = () => {
 const youWinStationOn = () => {
   youWinStation.value = true;
   wrongAnswerOff();
+  roundStationOff();
 };
 
 const youWinStationOff = () => {
@@ -173,6 +183,12 @@ provide("settingsStation", {
   trueSettings,
 });
 
+provide("friendsButton", {
+  friendsButton,
+  friendsButtonOff,
+  friendsButtonOn,
+});
+
 provide("supportActive", {
   supportActive,
   supportOn,
@@ -263,13 +279,14 @@ provide("UserProfileStation", {
   >
     <section class="user-accaunt">
       <UserHeader />
-      <button @click="duelStationOn" class="new-game-btn">
+      <button @click="duelStationOn" v-if="!friendsButton" class="new-game-btn">
         <img src="/main/sword.svg" alt="" />
         NEW GAME
         <img src="/main/sword.svg" alt="" />
       </button>
     </section>
-    <section class="user-interface-cont"></section>
+    <section v-if="!friendsButton" class="user-interface-cont"></section>
+    <section v-if="friendsButton" class="user-interface-cont-friends"></section>
     <HistoryGame v-if="navigationStation" />
     <Friends v-else />
   </section>
@@ -292,6 +309,17 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
+}
+
+.user-interface-cont-friends {
+  position: fixed;
+  bottom: 0;
+  z-index: 20;
+  border-radius: 28px 28px 0 0;
+  background-color: #040720;
+  opacity: 60%;
+  width: 100%;
+  height: 673px;
 }
 
 .user-interface-cont {
@@ -370,11 +398,25 @@ body {
   }
 }
 
+@media screen and (max-height: 780px) {
+  .user-interface-cont-friends {
+    width: 100%;
+    height: 600px;
+  }
+}
+
 @media screen and (max-height: 790px) {
   .user-interface-cont {
     background-color: #040720;
     width: 100%;
     height: 500px;
+  }
+}
+
+@media screen and (max-height: 720px) {
+  .user-interface-cont-friends {
+    width: 100%;
+    height: 550px;
   }
 }
 

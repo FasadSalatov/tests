@@ -4,28 +4,27 @@ const { navigationStation, trueNavigation, falseNavigation } =
   inject("navigationStation");
 
 const { settingsStation } = inject("settingsStation");
-
+const { friendsButtonOn, friendsButton, friendsButtonOff } =
+  inject("friendsButton");
 const { UserProfileStation } = inject("UserProfileStation");
 const buttonStation = reactive({
   homeButton: true,
-  friendsButton: false,
 });
 
 const homeButtonClick = () => {
   buttonStation.homeButton = true;
-  buttonStation.friendsButton = false;
+  friendsButtonOff();
   trueNavigation();
 };
 
 const friendsButtonClick = () => {
   buttonStation.homeButton = false;
-  buttonStation.friendsButton = true;
+  friendsButtonOn();
   falseNavigation();
 };
 </script>
 
 <template>
-  <!-- <div class="gradient-block"></div> -->
   <div class="navigation-color"></div>
   <nav class="navigation" v-if="!settingsStation && !UserProfileStation">
     <button
@@ -38,7 +37,7 @@ const friendsButtonClick = () => {
     <button
       class="navigation-btn"
       @click="friendsButtonClick"
-      :class="{ active: buttonStation.friendsButton }"
+      :class="{ active: friendsButton }"
     >
       Friends
     </button>

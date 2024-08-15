@@ -382,7 +382,7 @@ body {
   .user-interface-cont {
     background-color: #040720;
     width: 100%;
-    height: 450px;
+    height: 470px;
   }
 }
 </style>

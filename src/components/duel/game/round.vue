@@ -34,9 +34,12 @@ export default {
         }
       }, 1000);
     },
+    nextButton() {
+      this.showButton = true;
+    },
     resetTimer() {
       this.timer = 30;
-      this.showButton = false; // Скрываем кнопку при сбросе таймера
+      this.showButton = false;
       if (this.interval) {
         clearInterval(this.interval);
       }
@@ -67,22 +70,22 @@ export default {
       <section class="answer-variations">
         <div class="line-time" :style="timerStyle"></div>
         <section class="answer-variations-card-cont">
-          <article class="answer-variations-card" @click="correctAnswerOn">
+          <article class="answer-variations-card" @click="nextButton">
             <h1 class="answer-title">46</h1>
           </article>
-          <article class="answer-variations-card" @click="correctAnswerOn">
+          <article class="answer-variations-card" @click="nextButton">
             <h1 class="answer-title">47</h1>
           </article>
-          <article class="answer-variations-card" @click="correctAnswerOn">
+          <article class="answer-variations-card" @click="nextButton">
             <h1 class="answer-title">23</h1>
           </article>
-          <article class="answer-variations-card" @click="correctAnswerOn">
+          <article class="answer-variations-card" @click="nextButton">
             <h1 class="answer-title">0</h1>
           </article>
         </section>
-        <!-- <button @click="correctAnswerOn" class="next-btn" v-if="showButton">
+        <button @click="correctAnswerOn" v-if="showButton" class="next-btn">
           NEXT <img src="/main/duel/correctAnswer/NEXT.svg" alt="next" />
-        </button> -->
+        </button>
       </section>
     </section>
   </section>

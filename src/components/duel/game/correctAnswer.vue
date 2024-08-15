@@ -34,6 +34,9 @@ export default {
         }
       }, 1000);
     },
+    nextButton() {
+      this.showButton = true;
+    },
     resetTimer() {
       this.timer = 30;
       this.showButton = false; // Скрываем кнопку при сбросе таймера
@@ -67,13 +70,13 @@ export default {
       <section class="answer-variations">
         <div class="line-time" :style="timerStyle"></div>
         <section class="answer-variations-card-cont">
-          <article class="answer-variations-card">
+          <article class="answer-variations-card" @click="nextButton">
             <h1 class="answer-title">46</h1>
           </article>
-          <article class="answer-variations-card-good">
+          <article class="answer-variations-card-good" @click="nextButton">
             <h1 class="answer-title">47</h1>
           </article>
-          <article class="answer-variations-card">
+          <article class="answer-variations-card" @click="nextButton">
             <h1 class="answer-title">23</h1>
             <img
               class="enemy-img"
@@ -81,7 +84,7 @@ export default {
               alt="enemy"
             />
           </article>
-          <article class="answer-variations-card">
+          <article class="answer-variations-card" @click="nextButton">
             <h1 class="answer-title">0</h1>
           </article>
         </section>

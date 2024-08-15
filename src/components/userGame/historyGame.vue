@@ -301,8 +301,8 @@ export default {
   border-radius: 80px;
   width: 190px;
   height: 29px;
-  background: linear-gradient(180deg, #3395ff 0%, #0053ad 100%);
-  border: none;
+  border: 2px solid #3395ff;
+  background: transparent;
   font-family: "Inter Tight", sans-serif;
   font-weight: 600;
   font-size: 14px;
@@ -310,8 +310,8 @@ export default {
 }
 
 .user-game-button.active {
-  border: 2px solid #3395ff;
-  background: transparent;
+  background: linear-gradient(180deg, #3395ff 0%, #0053ad 100%);
+  border: none;
 }
 
 .card-cont {

@@ -19,7 +19,7 @@ const { UserProfileStationOn } = inject("UserProfileStation");
   <article class="completed-game-card">
     <div class="defeat-info-cont" v-if="battleStation">
       <div class="win-info">
-        <p class="result-bittle">WIN</p>
+        <p class="result-bittle">Win</p>
         <h2 class="result-bittle">+{{ eloWin }}</h2>
       </div>
       <h1 class="score-battle">{{ scoreUser }}:{{ scoreOpponent }}</h1>

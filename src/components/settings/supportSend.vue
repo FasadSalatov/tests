@@ -7,10 +7,10 @@ const { SupportSendMessageOff } = inject("SupportSendMessage");
   <section class="support-send-cont">
     <article class="message">
       <h1>
-        Your message has been sent to<br />
+        Your message has been sent to <br />
         support!
       </h1>
-      <h2>A reply will be sent to your email</h2>
+      <h2>We’ll reply to your email soon.</h2>
       <button @click="SupportSendMessageOff">Ok</button>
     </article>
   </section>

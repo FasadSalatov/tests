@@ -8,7 +8,7 @@ const { enemyFoundStation, enemyFoundStationOn } = inject("enemyFoundStation");
 <template>
   <section>
     <article class="game-timer-cont">
-      <p class="subtitle-timer">waiting game...</p>
+      <p class="subtitle-timer">waiting for game...</p>
       <h2 class="timer">15</h2>
     </article>
     <UserIcon />

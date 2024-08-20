@@ -14,8 +14,8 @@ import SupportSend from "./supportSend.vue";
       <h2 class="title-support">Support</h2>
     </article>
     <h1 class="support-cont-title">
-      If you are dissatisfied with something,<br />
-      write to us, we will fix the error
+      If you're dissatisfied with something, contact us, <br />
+      and we'll fix the issue.
     </h1>
     <div class="messgage-support-cont"></div>
     <section class="messgage-support-cont-color">

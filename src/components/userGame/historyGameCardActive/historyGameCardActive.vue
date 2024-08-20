@@ -59,7 +59,7 @@ const { UserProfileStationOn } = inject("UserProfileStation");
       <div class="fight-station-title">
         <img src="/main/activeGame/shield.svg" alt="sword" />
         <div>
-          <h2 class="turn-title">The enemy’s turn</h2>
+          <h2 class="turn-title">Opponent's turn</h2>
           <p class="time-title">12h left</p>
         </div>
       </div>

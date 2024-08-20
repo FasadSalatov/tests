@@ -8,7 +8,7 @@ const { duelStationOff } = inject("duelStation");
 <template>
   <Header />
   <section class="win-cont">
-    <h2 class="win-title">You lose</h2>
+    <h2 class="win-title">YOU LOSE</h2>
     <ResultGame />
   </section>
   <div class="button-color-cont"></div>

@@ -240,7 +240,7 @@ export default {
   <div class="user-game-info"></div>
   <section class="user-game-info-cont">
     <div class="user-game-title-cont">
-      <h2 class="user-game-title">Game history</h2>
+      <h2 class="user-game-title">Battles history</h2>
     </div>
     <div class="user-game-button-cont" v-bind="$attrs">
       <button

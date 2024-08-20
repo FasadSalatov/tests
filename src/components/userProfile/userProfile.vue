@@ -154,7 +154,7 @@ const removeToFriend = () => {
       </button>
     </section>
     <section class="user-history">
-      <h2 class="user-history-title">User’s game history</h2>
+      <h2 class="user-history-title">User's battles history</h2>
       <section class="card-cont">
         <UserProfileCardList :completed="completed" />
       </section>
